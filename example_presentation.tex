@@ -1,0 +1,129 @@
+\documentclass[table,10pt]{beamer}
+
+\mode<presentation> {
+  \usepackage{iff}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage{times}
+\usepackage{listings}
+\usepackage{colortbl}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{url}
+\usepackage{fontspec}
+\usepackage{xunicode} %Unicode extras!
+\usepackage{xltxtra}  %Fixes
+
+\usepackage{algpseudocode}
+\algrenewcommand\algorithmicif{{\color{blue}\textbf{if}}}
+\algrenewcommand\algorithmicelse{{\color{blue}\textbf{else}}}
+\algrenewcommand\algorithmicthen{{\color{blue}\textbf{then}}}
+\algrenewcommand\algorithmicdo{{\color{blue}\textbf{do}}}
+\algrenewcommand\algorithmicforall{{\color{blue}\textbf{for all}}}
+\algrenewcommand\algorithmicfor{{\color{blue}\textbf{for}}}
+\algrenewcommand\algorithmicend{{\color{blue}\textbf{end}}}
+\algrenewcommand\algorithmicprocedure{{\color{blue}\textbf{procedure}}}
+
+
+%FIXME: need tikz to able to compile iff-style
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,snakes,backgrounds}
+\usetikzlibrary{mindmap,trees}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{plotmarks}
+\usetikzlibrary{calc}
+
+
+% For Code listings
+\lstnewenvironment{code}[1][]
+{\textbf{Code Listing} \hspace{1cm} \hrulefill \lstset{language=C++,
+basicstyle=\ttfamily\scriptsize, keywordstyle=\color{blue}\bfseries,
+commentstyle=\color{mygreen}, stringstyle=\color{red}}}
+{\hrule\smallskip}
+
+\lstnewenvironment{smallcode}[1][]
+{\lstset{language=C++, basicstyle=\ttfamily\scriptsize,
+keywordstyle=\color{myblue}\bfseries,commentstyle=\color{mygreen},
+stringstyle=\color{red}}}
+{\smallskip}
+
+\xdefinecolor{mygreen}{RGB}{0,220,0}
+\xdefinecolor{myblue}{RGB}{26,150,255}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title[]{Iffs Beamer Style}
+
+\author[Y. Ineichen]{Yves Ineichen}
+
+\date{End of the world}
+
+
+
+\begin{document}
+
+\tikzstyle{na} = [baseline=-.5ex]
+
+% For every picture that defines or uses external nodes, you'll have to
+% apply the 'remember picture' style. To avoid some typing, we'll apply
+% the style to all pictures.
+\tikzstyle{every picture}+=[remember picture]
+
+% By default all math in TikZ nodes are set in inline mode. Change this to
+% displaystyle so that we don't get small fractions.
+\everymath{\displaystyle}
+
+% FIXME: set your code language
+\lstset{language=C++, basicstyle=\small}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame} \titlepage \end{frame}
+
+\begin{frame}
+
+  \centering
+  \begin{tikzpicture}
+      \def\firstcircle  {(-1.0,0) circle (2.3cm)}
+      \def\secondcircle {(2.5,0)  circle (2.3cm)}
+
+      \begin{scope}
+          \fill[red, fill opacity=0.3]    \firstcircle;
+          \fill[blue, fill opacity=0.3]   \secondcircle;
+
+          \draw node at (-1.0, 0.0) { \textbf{Trains} };
+          \draw node at (2.5, 0.0) { \textbf{Speed of light} };
+
+          \begin{scope}
+            \clip \firstcircle;
+            \fill<2->[acidgreen] \secondcircle;
+          \end{scope}
+      \end{scope}
+
+  \end{tikzpicture}
+
+  \pause
+  \alert{Relativistic trains are awesome!}
+
+  % and add a footnote with an appropriated citation
+  \source{Relativistic Trains}{Sheldon Cooper, Phys.\ Rev.\ Stab., 2013.}
+
+\end{frame}
+
+
+% full page graphics with a title
+\titledfullframegraphicH{\alert{xkcd}}{figures/slides}
+
+
+% insert a special section frame
+\sectionframe{Section 7}{lalalal}
+
+
+\end{document}
