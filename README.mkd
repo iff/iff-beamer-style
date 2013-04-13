@@ -1,0 +1,16 @@
+# iff-beamer-style
+
+This is a dark beamer style I was building during the days as a graduate
+student. Aside the style file also contains a bunch of macros that I deemed
+useful when writing presentations:
+
+* full frame graphics with and without a title,
+* footnotes with citations, and
+* section slides with a title and a subtitle.
+
+
+In order to use the style in your presentation you need Beamer, XeLaTeX and
+TikZ. The provided example presentation can be built by running
+
+    xelatex example_presentation.tex
+
